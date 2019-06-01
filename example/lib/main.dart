@@ -43,16 +43,20 @@ class AppState extends State<MyApp>{
               title: new Text("2.吐司工具，设置背景和字体颜色"),
               onTap: (){
                 YcToast.showToast(
-                    title: "This is Colored Toast with android duration of 5 Sec",
+                    title: "逗比吐司",
                     toastLength: Toast.LENGTH_SHORT,
-                    backgroundColor: Colors.black87,
-                    textColor: Colors.white);
+                    gravity: ToastGravity.CENTER);
               },
             ),
             new Divider(),
             new ListTile(
               title: new Text("1.吐司工具，位置设置在中间"),
               onTap: (){
+                YcToast.showToast(
+                    title: "逗比吐司",
+                    toastLength: Toast.LENGTH_SHORT,
+                    fontSize: 14,
+                    gravity: ToastGravity.CENTER);
               },
             ),
             new Divider(),

@@ -33,7 +33,7 @@ class YcToastPlugin: MethodCallHandler {
 
   companion object {
     // ANDROID_CHANNEL 是我们 method channel 的名称，很重要，Dart 代码里还需要用到它。
-    private const val ANDROID_CHANNEL = "com.ycbjie/flutter_toast"
+    private const val ANDROID_CHANNEL = "yc/flutter_toast"
 
     @JvmStatic
     fun registerWith(registrar: Registrar) {
@@ -56,7 +56,7 @@ class YcToastPlugin: MethodCallHandler {
         val radius = call.argument<Float>("radius")
         val bgColor = call.argument<Int>("bgColor")
         val textColor = call.argument<Int>("textColor")
-        val fontSize = call.argument<Float>("fontSize")
+        val fontSize = call.argument<Double>("fontSize")
 
         //创建吐司
         if (toast == null) {
@@ -90,7 +90,7 @@ class YcToastPlugin: MethodCallHandler {
         }
         //设置吐司文字大小
         if (fontSize != null){
-          textView.textSize = fontSize
+          textView.textSize = fontSize.toFloat()
         } else{
           textView.textSize = 14.0f
         }

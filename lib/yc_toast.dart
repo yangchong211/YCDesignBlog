@@ -14,7 +14,7 @@ enum ToastGravity { TOP, BOTTOM, CENTER }
 class YcToast {
 
   //这个与Android中的channel要对应相同
-  static const  channel = "com.ycbjie/flutter_toast";
+  static const  channel = "yc/flutter_toast";
   //这个show和cancel要和Android中对应
   static const  yc_show_toast = "yc_show_toast";
   static const  yc_cancel_toast = "yc_cancel_toast";
@@ -35,8 +35,6 @@ class YcToast {
     Toast toastLength,
     double fontSize = 16.0,
     ToastGravity gravity,
-    Color backgroundColor,
-    Color textColor,
   }) async {
     //吐司时间
     String length = "short";
@@ -54,20 +52,11 @@ class YcToast {
       gravityToast = "bottom";
     }
 
-    //吐司背景颜色和文字颜色
-    if(backgroundColor == null) {
-      backgroundColor = Colors.black;
-    }
-    if(textColor == null) {
-      textColor = Colors.white;
-    }
     final Map<String, dynamic> params = <String, dynamic>{
       'title': title,
       'desc': desc,
       'length': length,
       'gravity': gravityToast,
-      'bgColor': backgroundColor != null ? backgroundColor.value : null,
-      'textColor': textColor != null ? textColor.value: null,
       'fontSize': fontSize,
     };
     bool isSuccess = await _channel.invokeMethod(yc_show_toast, params);
