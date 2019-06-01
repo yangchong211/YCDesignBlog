@@ -84,6 +84,16 @@ class AppState extends State<MyApp>{
               },
             ),
             new Divider(),
+            new ListTile(
+              title: new Text("6.吐司工具，设置系统吐司"),
+              onTap: (){
+                YcToast.showToast(
+                    title: "逗比",
+                    type: Type.SYSTEM,
+                    toastLength: Toast.LENGTH_SHORT);
+              },
+            ),
+            new Divider(),
           ],
         ),
       ),

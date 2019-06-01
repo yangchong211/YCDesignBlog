@@ -36,7 +36,7 @@ class YcToast {
     //吐司标题，这个参数是必须的，需要用@required修饰
     @required String title,
     //吐司类型，这个参数是必须的
-    //@required Type type,
+    Type type,
     //吐司内容，不必须
     String desc,
     //吐司控件的圆角半径，默认是5
@@ -54,6 +54,14 @@ class YcToast {
       length = "long";
     }
 
+    //吐司类型
+    String typeToast = "SYSTEM";
+    if(type == Type.SYSTEM){
+      typeToast = "SYSTEM";
+    }else{
+      typeToast = "CUSTOM";
+    }
+
     //吐司位置
     String gravityToast = "center";
     if (gravity == ToastGravity.TOP) {
@@ -67,6 +75,7 @@ class YcToast {
     final Map<String, dynamic> params = <String, dynamic>{
       'title': title,
       'desc': desc,
+      'typeToast':typeToast,
       'radius':radius,
       'length': length,
       'gravity': gravityToast,
