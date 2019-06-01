@@ -30,10 +30,17 @@ class YcToast {
 
   ///直接吐司
   static Future<bool> showToast({
+    //吐司标题，这个参数是必须的，需要用@required修饰
     @required String title,
+    //吐司内容，不必须
     String desc,
+    //吐司控件的圆角半径，默认是5
+    double radius = 5,
+    //吐司时间
     Toast toastLength,
+    //吐司title的文字大小
     double fontSize = 16.0,
+    //吐司位置
     ToastGravity gravity,
   }) async {
     //吐司时间
@@ -55,6 +62,7 @@ class YcToast {
     final Map<String, dynamic> params = <String, dynamic>{
       'title': title,
       'desc': desc,
+      'radius':radius,
       'length': length,
       'gravity': gravityToast,
       'fontSize': fontSize,

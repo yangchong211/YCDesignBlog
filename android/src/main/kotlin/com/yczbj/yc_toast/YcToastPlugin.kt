@@ -53,7 +53,7 @@ class YcToastPlugin: MethodCallHandler {
         val desc = call.argument<String>("desc")
         val length = call.argument<String>("length")
         val gravity = call.argument<String>("gravity")
-        val radius = call.argument<Float>("radius")
+        val radius = call.argument<Double>("radius")
         val bgColor = call.argument<Int>("bgColor")
         val textColor = call.argument<Int>("textColor")
         val fontSize = call.argument<Double>("fontSize")
@@ -97,7 +97,7 @@ class YcToastPlugin: MethodCallHandler {
 
         //设置圆角
         if (radius != null){
-          rootView.radius = radius
+          rootView.radius = radius.toFloat()
         } else {
           rootView.radius = 10.0f
         }

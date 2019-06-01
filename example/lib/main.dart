@@ -30,11 +30,10 @@ class AppState extends State<MyApp>{
         body: new ListView(
           children: <Widget>[
             new ListTile(
-              title: new Text("1.吐司工具，位置设置在中间"),
+              title: new Text("1.吐司工具，最简单的吐司"),
               onTap: (){
                 YcToast.showToast(
                   title: "普通吐司一下",
-                  toastLength: Toast.LENGTH_LONG,
                 );
               },
             ),
@@ -50,12 +49,24 @@ class AppState extends State<MyApp>{
             ),
             new Divider(),
             new ListTile(
-              title: new Text("1.吐司工具，位置设置在中间"),
+              title: new Text("3.吐司工具，设置位置在中间"),
               onTap: (){
                 YcToast.showToast(
-                    title: "逗比吐司",
+                    title: "逗比",
                     toastLength: Toast.LENGTH_SHORT,
                     fontSize: 14,
+                    gravity: ToastGravity.CENTER);
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("4.吐司工具，设置吐司圆角"),
+              onTap: (){
+                YcToast.showToast(
+                    title: "逗比",
+                    toastLength: Toast.LENGTH_SHORT,
+                    fontSize: 14,
+                    radius:15,
                     gravity: ToastGravity.CENTER);
               },
             ),
