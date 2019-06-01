@@ -11,8 +11,12 @@
     card_view:cardUseCompatPadding="false">
 
     <LinearLayout
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:minWidth="100dp"
+        android:minHeight="50dp"
         android:gravity="center"
         android:layout_gravity="center"
         android:orientation="vertical"
@@ -21,22 +25,19 @@
 
         <TextView
             android:id="@+id/toastTextView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="visible"
             android:gravity="center"
-            android:minEms="10"
-            android:minHeight="30dp"
-            android:padding="5dp"
             android:text="提示:恭喜发财!"
             android:textColor="@android:color/white"
             android:textSize="15sp" />
 
         <TextView
             android:id="@+id/desc"
-            android:gravity="gone"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
+            android:layout_marginTop="5dp"
             android:visibility="visible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

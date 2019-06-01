@@ -33,7 +33,7 @@ class AppState extends State<MyApp>{
               title: new Text("1.吐司工具，最简单的吐司"),
               onTap: (){
                 YcToast.showToast(
-                  title: "普通吐司一下",
+                  title: "逗比吐司",
                 );
               },
             ),
@@ -66,7 +66,20 @@ class AppState extends State<MyApp>{
                     title: "逗比",
                     toastLength: Toast.LENGTH_SHORT,
                     fontSize: 14,
-                    radius:15,
+                    radius:25,
+                    gravity: ToastGravity.CENTER);
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("5.吐司工具，吐司标题和内容"),
+              onTap: (){
+                YcToast.showToast(
+                    title: "逗比",
+                    desc: "这个是内容",
+                    toastLength: Toast.LENGTH_SHORT,
+                    fontSize: 14,
+                    radius:20,
                     gravity: ToastGravity.CENTER);
               },
             ),
