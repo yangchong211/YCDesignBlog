@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:yc_toast/yc_toast.dart';
-import 'package:yc_toast_example/YcColors.dart';
 void main() => runApp(MyApp());
 
 
@@ -104,8 +103,8 @@ class AppState extends State<MyApp>{
                     toastLength: Toast.LENGTH_SHORT,
                     fontSize: 14,
                     radius:20,
-                    bgColor: YcColors.colorRed10,
-                    textColor: YcColors.colorPurple,
+                    bgColor: Color(0xFFB71C1C),
+                    textColor: Color(0xFF4A148C),
                     gravity: ToastGravity.CENTER,);
               },
             ),
