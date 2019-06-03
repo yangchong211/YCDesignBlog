@@ -58,8 +58,8 @@ class YcToastPlugin : MethodCallHandler {
                 val length = call.argument<String>("length")
                 val gravity = call.argument<String>("gravity")
                 val radius = call.argument<Double>("radius")
-                val bgColor = call.argument<Int>("bgColor")
-                val textColor = call.argument<Int>("textColor")
+                val bgColor = call.argument<Long>("bgColor")
+                val textColor = call.argument<Long>("textColor")
                 val fontSize = call.argument<Double>("fontSize")
 
 
@@ -108,6 +108,20 @@ class YcToastPlugin : MethodCallHandler {
                         textView.textSize = 14.0f
                     }
 
+                    //设置背景颜色
+                    if (bgColor != null){
+                        rootView.setCardBackgroundColor(bgColor.toInt())
+                    }else{
+                        rootView.setCardBackgroundColor(context.resources.getColor(R.color.color_bg))
+                    }
+
+                    //设置标题颜色
+                    if (textColor != null){
+                        textView.setTextColor(textColor.toInt())
+                    }else{
+                        textView.setTextColor(Color.WHITE)
+                    }
+
                     //设置圆角
                     if (radius != null) {
                         rootView.radius = radius.toFloat()
@@ -117,14 +131,14 @@ class YcToastPlugin : MethodCallHandler {
 
                     //设置背景颜色
                     if (bgColor != null) {
-                        rootView.setCardBackgroundColor(bgColor)
+                        rootView.setCardBackgroundColor(bgColor.toInt())
                     } else {
                         rootView.setCardBackgroundColor(Color.BLACK)
                     }
 
                     //设置字体颜色
                     if (textColor != null) {
-                        textView.setTextColor(textColor)
+                        textView.setTextColor(textColor.toInt())
                     } else {
                         textView.setTextColor(Color.WHITE)
                     }

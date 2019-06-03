@@ -1,6 +1,5 @@
 
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -47,6 +46,10 @@ class YcToast {
     double fontSize = 16.0,
     //吐司位置
     ToastGravity gravity,
+    //吐司标题颜色
+    Color textColor,
+    //吐司背景颜色
+    Color bgColor,
   }) async {
     //吐司时间
     String length = "short";
@@ -72,6 +75,16 @@ class YcToast {
       gravityToast = "bottom";
     }
 
+    //吐司背景颜色
+    if(bgColor == null) {
+      bgColor = Colors.black;
+    }
+
+    //吐司标题颜色
+    if(textColor == null) {
+      textColor = Colors.white;
+    }
+
     final Map<String, dynamic> params = <String, dynamic>{
       'title': title,
       'desc': desc,
@@ -80,6 +93,8 @@ class YcToast {
       'length': length,
       'gravity': gravityToast,
       'fontSize': fontSize,
+      'bgColor': bgColor != null ? bgColor.value : null,
+      'textColor': textColor != null ? textColor.value: null,
     };
     bool isSuccess = await _channel.invokeMethod(yc_show_toast, params);
     print("flutter-onMethodCall--"+isSuccess.toString());

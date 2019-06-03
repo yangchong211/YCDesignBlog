@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yc_toast/yc_toast.dart';
+import 'package:yc_toast_example/YcColors.dart';
 void main() => runApp(MyApp());
 
 
@@ -91,6 +92,21 @@ class AppState extends State<MyApp>{
                     title: "逗比",
                     type: Type.SYSTEM,
                     toastLength: Toast.LENGTH_SHORT);
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("7.自定义吐司，设置背景和颜色"),
+              onTap: (){
+                YcToast.showToast(
+                    title: "逗比",
+                    desc: "这个是内容",
+                    toastLength: Toast.LENGTH_SHORT,
+                    fontSize: 14,
+                    radius:20,
+                    bgColor: YcColors.colorRed10,
+                    textColor: YcColors.colorPurple,
+                    gravity: ToastGravity.CENTER,);
               },
             ),
             new Divider(),
