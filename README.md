@@ -192,6 +192,14 @@
     ```
 
 
+### 06.自定义吐司图片展示
+![image](https://github.com/yangchong211/YCFlutterToast/blob/master/image/1.jpg)
+![image](https://github.com/yangchong211/YCFlutterToast/blob/master/image/2.jpg)
+![image](https://github.com/yangchong211/YCFlutterToast/blob/master/image/3.jpg)
+![image](https://github.com/yangchong211/YCFlutterToast/blob/master/image/4.jpg)
+![image](https://github.com/yangchong211/YCFlutterToast/blob/master/image/5.jpg)
+![image](https://github.com/yangchong211/YCFlutterToast/blob/master/image/6.jpg)
+
 
 
 ### 07.遇到的问题介绍
