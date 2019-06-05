@@ -1,0 +1,9 @@
+*.md linguist-language=Dart
+*.yml linguist-language=Dart
+*.html linguist-language=Dart
+*.js linguist-language=Dart
+*.xml linguist-language=Dart
+*.css linguist-language=Dart
+*.sql linguist-language=Dart
+*.uml linguist-language=Dart
+*.cmd linguist-language=Dart
