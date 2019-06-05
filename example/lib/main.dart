@@ -42,7 +42,7 @@ class AppState extends State<MyApp>{
             ),
             new Divider(),
             new ListTile(
-              title: new Text("2.吐司工具，设置背景和字体颜色"),
+              title: new Text("2.吐司工具，设置位置在中间"),
               onTap: (){
                 YcToast.showToast(
                     title: "逗比吐司",
@@ -52,13 +52,11 @@ class AppState extends State<MyApp>{
             ),
             new Divider(),
             new ListTile(
-              title: new Text("3.吐司工具，设置位置在中间"),
+              title: new Text("3.吐司工具，设置字体大小"),
               onTap: (){
                 YcToast.showToast(
                     title: "逗比",
-                    toastLength: Toast.LENGTH_SHORT,
-                    fontSize: 14,
-                    gravity: ToastGravity.CENTER);
+                    fontSize: 14,);
               },
             ),
             new Divider(),
@@ -67,8 +65,6 @@ class AppState extends State<MyApp>{
               onTap: (){
                 YcToast.showToast(
                     title: "逗比",
-                    toastLength: Toast.LENGTH_SHORT,
-                    fontSize: 14,
                     radius:25,
                     gravity: ToastGravity.CENTER);
               },
