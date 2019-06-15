@@ -22,7 +22,9 @@
 
 ### 03.使用说明文档
 - yc_toast依赖方式
-    - 待更新，暂时无法上传到pub上，可以看07问题介绍，要是有人提出解决方案就好了。
+    ```
+    yc_toast: ^0.0.1
+    ```
 - flutter调用吐司介绍
     - 最简单的吐司
     ```
@@ -206,6 +208,9 @@
 - 01.flutter Failed to handle method call
     - 问题：flutter无法处理方法调用，查看channel名称是否一致。注意，flutter和Android原生通信的channel字段要一样哦！
 - 02.pub上传失败
+    - 上传指令
+        - flutter packages pub publish --dry-run    检查看是否没有问题
+        - flutter packages pub publish              上传
     - 错误场景：
         - 已经通过西游vpn翻墙，已经通过flutter packages pub publish指令提交代码，同时也打开了提示中的链接https:开头，以.email结尾的地址授权。最后还是报错！
         - 网上有说下面的错误产生的根源是，需要给终端设置代理，也就是命令行代理。但是不知道window端该如何解决……参考文章链接：[发布失败问题解决](https://blog.csdn.net/qq_26287435/article/details/89313269)
