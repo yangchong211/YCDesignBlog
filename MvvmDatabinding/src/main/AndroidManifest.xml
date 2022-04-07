@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.yc.todoappmvvm">
+
+    <application>
+        <activity
+            android:name="com.yc.todoappmvvm.tasks.TasksMvvmActivity"
+            android:theme="@style/AppTheme.OverlapSystemBar">
+        </activity>
+        <activity android:name="com.yc.todoappmvvm.taskdetail.TaskDetailActivity" />
+        <activity android:name="com.yc.todoappmvvm.addedittask.AddEditTaskActivity" />
+        <activity
+            android:name="com.yc.todoappmvvm.statistics.StatisticsActivity"
+            android:parentActivityName="com.yc.todoappmvvm.tasks.TasksMvvmActivity"
+            tools:ignore="UnusedAttribute">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.yc.todoappmvvm.tasks.TasksMvvmActivity" />
+        </activity>
+    </application>
+
+</manifest>
