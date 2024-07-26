@@ -1,4 +1,0 @@
-include ':app'
-include ':MvpTodoBusiness'
-include ':MvvmDatabinding'
-include ':MvvmTodoLive'
