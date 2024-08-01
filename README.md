@@ -5,6 +5,7 @@
 - 03.行为型设计模式
 - 04.面向对象设计原则
 - 05.项目重构的演进
+- 06.更多内容推荐
 
 
 
@@ -61,6 +62,18 @@
 - [33.项目重构演进之路](https://blog.csdn.net/m0_37700275/article/details/86069291)
 - [34.重构技术手段分析](https://blog.csdn.net/m0_37700275/article/details/86294509)
 - [35.切忌避免过度设计](https://blog.csdn.net/m0_37700275/article/details/86297630)
+
+
+
+
+### 06.更多内容推荐
+- GitHub：https://github.com/yangchong211
+- 博客：https://juejin.cn/user/1978776659695784
+- 博客汇总：https://github.com/yangchong211/YCBlogs
+- 设计模式专栏：https://github.com/yangchong211/YCDesignBlog
+- Java高级进阶专栏：https://github.com/yangchong211/YCJavaBlog
+- 网络协议专栏：https://github.com/yangchong211/YCJavaBlog
+- 计算机基础原理专栏：https://github.com/yangchong211/YCJavaBlog
 
 
 
