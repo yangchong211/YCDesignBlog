@@ -1,27 +1,20 @@
-package structural;
+package proxy;
 
-public class ProxyDesign {
+/**
+ * 静态代理模式
+ */
+public class ProxyDesign1 {
 
     public static void main(String[] args) {
-        testProxy();
-        testProxy2();
-        proxyImage();
+        new ProxyDesign1().testProxy();
     }
 
-    private static void testProxy() {
+    private void testProxy() {
         //1.创建委托对象
-        RealSubject subject = new RealSubject();
+        RealSubject1 subject = new RealSubject1();
+        //RealSubject2 subject = new RealSubject2();
         //2.创建调用处理器对象
         Proxy p = new Proxy(subject);
-        //3.通过代理对象调用方法
-        p.request();
-    }
-
-    private static void testProxy2() {
-        //1.创建委托对象
-        RealSubject subject = new RealSubject();
-        //2.创建调用处理器对象
-        MyProxy p = new MyProxy(subject);
         //3.通过代理对象调用方法
         p.request();
     }
@@ -30,28 +23,28 @@ public class ProxyDesign {
     /**
      * 代理类和委托类会实现接口
      */
-    interface Subject{
+    interface Subject {
         void request();
     }
 
 
     /**
-     * 委托类
+     * 委托类1
      */
-    static class RealSubject implements Subject{
+    static class RealSubject1 implements Subject {
         @Override
-        public void request(){
-            System.out.println("request 1");
+        public void request() {
+            System.out.println("request 1 要找房子");
         }
     }
 
     /**
-     * 委托类
+     * 委托类1
      */
-    static class RealSubject2 implements Subject{
+    static class RealSubject2 implements Subject {
         @Override
-        public void request(){
-            System.out.println("request 2");
+        public void request() {
+            System.out.println("request 2 要找房子");
         }
     }
 
@@ -61,44 +54,24 @@ public class ProxyDesign {
     static class Proxy implements Subject {
 
         private Subject subject;
-        public Proxy(Subject subject){
+
+        public Proxy(Subject subject) {
             this.subject = subject;
         }
 
         @Override
         public void request() {
-            System.out.println("PreProcess");
+            System.out.println("代理类");
             subject.request();
-            System.out.println("PostProcess");
         }
     }
 
-    /**
-     * 代理类，给委托类增加一个过滤功能，只租房给我们这类逗比程序员。
-     * 通过静态代理，我们无需修改委托类的代码就可以实现，只需在代理类中的方法中添加一个判断即可如下所示：
-     */
-    static class MyProxy implements Subject{
-        private Subject subject;
-        boolean isDouBi = true;
-        public MyProxy(Subject subject){
-            this.subject = subject;
-        }
-        @Override
-        public void request(){
-            //判断是否是逗比程序员
-            if (isDouBi){
-                System.out.println("逗比 PreProcess");
-                subject.request();
-                System.out.println("逗比 PostProcess");
-            }
-        }
-    }
 
     /*
-    * 静态代理可以用于保护真实对象的使用权限
-    * 通过代理类，可以在访问真实对象之前或之后执行一些额外的操作，例如权限验证、身份验证等，以确保只有具有适当权限的用户可以访问真实对象。
-    * */
-    private static void proxyImage() {
+     * 静态代理可以用于保护真实对象的使用权限
+     * 通过代理类，可以在访问真实对象之前或之后执行一些额外的操作，例如权限验证、身份验证等，以确保只有具有适当权限的用户可以访问真实对象。
+     * */
+    private void proxyImage() {
         Image image = new ImageProxy("image.jpg");
         // 只有在调用display方法时，真实对象才会被加载和显示
         image.display();
@@ -111,7 +84,7 @@ public class ProxyDesign {
     }
 
     // 定义真实对象
-    static class RealImage implements Image {
+    public class RealImage implements Image {
         private String filename;
 
         public RealImage(String filename) {
@@ -128,7 +101,7 @@ public class ProxyDesign {
         }
     }
     // 定义代理类
-    static class ImageProxy implements Image {
+    public class ImageProxy implements Image {
         private String filename;
         private RealImage realImage;
 
@@ -166,7 +139,7 @@ public class ProxyDesign {
 
     // 静态代理类
     class MailSenderProxy implements MailSender {
-        private RealMailSender realMailSender;
+        private final RealMailSender realMailSender;
 
         public MailSenderProxy() {
             this.realMailSender = new RealMailSender();

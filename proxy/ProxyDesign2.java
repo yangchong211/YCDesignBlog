@@ -1,16 +1,16 @@
-package structural;
+package proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
-public class Proxy2Design {
+public class ProxyDesign2 {
 
     public static void main(String[] args) {
-        testProxy();
+        new ProxyDesign2().testProxy();
     }
 
-    private static void testProxy() {
+    private void testProxy() {
         RealSubject realSubject = new RealSubject();
         ProxyHandler proxyHandler = new ProxyHandler(realSubject);
         Subject subject = (Subject) Proxy.newProxyInstance(RealSubject.class.getClassLoader(),
@@ -22,7 +22,7 @@ public class Proxy2Design {
         void request();
     }
 
-    static class RealSubject implements Subject{
+    class RealSubject implements Subject{
         @Override
         public void request(){
             System.out.println("request");
@@ -32,7 +32,7 @@ public class Proxy2Design {
     /**
      * 代理类的调用处理器
      */
-    static class ProxyHandler implements InvocationHandler {
+    class ProxyHandler implements InvocationHandler {
         private final Subject subject;
         public ProxyHandler(Subject subject){
             this.subject = subject;
@@ -46,4 +46,5 @@ public class Proxy2Design {
             return result;
         }
     }
+
 }
