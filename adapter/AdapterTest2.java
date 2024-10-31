@@ -4,100 +4,49 @@ public class AdapterTest2 {
 
 
     public static void main(String[] args) {
-//        test1();
-        test2();
+
     }
 
-    private static void test2() {
-        //计算器适配，读卡器，去读TF卡中的内容
-        Computer computer = new Computer();
-        //创建适配器对象，完全没有影响之前计算机读SD卡的逻辑
-        SDAdapterTF sdAdapterTF = new SDAdapterTF();
-        computer.readSD(sdAdapterTF);
+    // 对象适配器：基于组合
+    public interface ITarget {
+        void f1();
+
+        void f2();
+
+        void fc();
     }
 
-    private static void test1() {
-        //计算机读SD卡
-        Computer computer = new Computer();
-        SDCardImpl sdCard = new SDCardImpl();
-        computer.readSD(sdCard);
-    }
-
-    public interface SDCard {
-        //从SD卡中读取数据
-        String readSD();
-
-        //往SD卡中写数据
-        void writeSD(String msg);
-    }
-
-    //具体的SD卡
-    public static class SDCardImpl implements SDCard {
-        @Override
-        public String readSD() {
-            String msg = "SDCard read msg : SD";
-            System.out.println(msg);
-            return msg;
+    public class Adaptee {
+        public void fa() {
+            //...
         }
 
-        @Override
-        public void writeSD(String msg) {
-            System.out.println("SDCard write msg : " + msg);
+        public void fb() {
+            //...
+        }
+
+        public void fc() {
+            //...
         }
     }
 
-    //计算机类
-    public static class Computer {
+    public class Adaptor implements ITarget {
+        private final Adaptee adaptee;
 
-        //从SD卡中读取数据
-        public String readSD(SDCard sdCard) {
-            if (sdCard == null) {
-                throw new NullPointerException("sd card is null");
-            }
-            return sdCard.readSD();
-        }
-    }
-
-    //适配者类的接口
-    public interface TFCard {
-
-        //从TF卡中读取数据
-        String readTF();
-
-        //往TF卡中写数据
-        void writeTF(String msg);
-
-    }
-
-    //适配者类
-    public static class TFCardImpl implements TFCard {
-
-        @Override
-        public String readTF() {
-            String msg = "TFCard read msg : TF";
-            System.out.println(msg);
-            return msg;
+        public Adaptor(Adaptee adaptee) {
+            this.adaptee = adaptee;
         }
 
-        @Override
-        public void writeTF(String msg) {
-            System.out.println("TFCard write msg : " + msg);
-        }
-    }
-
-    //适配器类
-    public static class SDAdapterTF extends TFCardImpl implements SDCard {
-
-        @Override
-        public String readSD() {
-            System.out.println("adapter read tf card");
-            return readTF();
+        public void f1() {
+            adaptee.fa(); //委托给Adaptee
         }
 
-        @Override
-        public void writeSD(String msg) {
-            System.out.println("adapter wrete tf card");
-            writeTF(msg);
+        public void f2() {
+            //...重新实现f2()...
+        }
+
+        public void fc() {
+            adaptee.fc();
         }
     }
 
